@@ -104,7 +104,7 @@ if __name__ == '__main__':
 
 
     # Window.size = (setting.sizeX, setting.sizeY)
-    Window.size = (300, 530)
+    Window.size = (600, 300)
 
     loop = asyncio.get_event_loop()
     app = Application(loop)
