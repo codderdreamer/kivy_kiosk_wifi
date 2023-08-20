@@ -1,0 +1,14 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import Gradient kivy_gradient.Gradient
+
+
+
+
+<HomeWindow>:
+    MDScreen:
+        canvas:
+            Color: 
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                texture: Gradient.horizontal(get_color_from_hex("#DEE5FD"), get_color_from_hex("#DEFDEE"))
