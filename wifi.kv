@@ -139,7 +139,7 @@
             MDLabel:
                 id: wifi_password_text
                 size_hint:1,0.2
-                text: ""
+                text: "Please enter password for Atlastek."
                 theme_text_color:"Custom"
                 font_size:self.height
                 font_name: "font/SF-Pro-Rounded-Medium.otf"
@@ -148,9 +148,30 @@
                 #md_bg_color:get_color_from_hex("#fefefe")
                 halign:"center"
 
-        
+        MDTextField:
+            theme_text_color: "Custom"
+            text_color: get_color_from_hex("#000000")
+            hint_text: "Password"
+            mode: "fill"
+            pos_hint:{"center_x": .5, "center_y":.5}
+            radius: 14,14,14,14
+            size_hint: 0.4,0.07
+            font_name: "font/SF-Pro-Rounded-Medium.otf"
+            font_size:"20sp"
+            line_color_focus: get_color_from_hex("#326bff")
 
-        VKeyboard:
+        MDRelativeLayout:
+            id: keyboard
+            size_hint:0.8,0.4
+            md_bg_color:get_color_from_hex("#02355c")
+            pos_hint:{"center_x": .5, "center_y":.2}
+
+
+
+
+
+
+
 
                 
             

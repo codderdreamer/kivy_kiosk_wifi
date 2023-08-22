@@ -19,11 +19,11 @@ from kivymd.app import MDApp
 from kivy.clock import Clock
 from functools import partial
 from multiprocessing import Process, Manager
-from collections import defaultdict
-from kivy.uix.video import Video
-from kivy.uix.videoplayer import VideoPlayer
 import keyboard
 from kivy.uix.vkeyboard import *
+from kivymd.uix.card import MDCard
+from kivymd.uix.label import MDLabel
+from kivy.utils import get_color_from_hex
 
 class HomeWindow(Screen):
     def __init__(self, wifiApp, **kw):
@@ -81,12 +81,111 @@ class WifiSelectorWindow(Screen):
     def on_leave(self, *args):
         return super().on_leave(*args)
     
+
+    
+
+            # MDCard:
+            #     size_hint: 0.05,0.1
+            #     radius:6,6,6,6
+            #     pos_hint: {'x': 0,'y': .9}   
+            #     #md_bg_color:(0,0,0,0)
+            #     md_bg_color:get_color_from_hex("#7b9cb5")
+            #     ripple_behavior: True
+            #     elevation:0
+
+            #     MDLabel:
+            #         size_hint:0.5,0.5
+            #         text: "'"
+            #         theme_text_color:"Custom"
+            #         font_size:self.height
+            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
+            #         text_color:get_color_from_hex("#f2eded")
+            #         pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            #         #md_bg_color:get_color_from_hex("#fefefe")
+            #         halign:"center"
+
+            #     MDLabel:
+            #         size_hint:0.3,0.3
+            #         text: "~"
+            #         theme_text_color:"Custom"
+            #         font_size:self.height
+            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
+            #         text_color:get_color_from_hex("#f2eded")
+            #         pos_hint: {'center_x': 0,'center_y': 0.8}
+            #         #md_bg_color:get_color_from_hex("#fefefe")
+            #         halign:"center"
+
+            # MDCard:
+            #     size_hint: 0.05,0.1
+            #     radius:6,6,6,6
+            #     pos_hint: {'x': 0.06,'y': .9}   
+            #     #md_bg_color:(0,0,0,0)
+            #     md_bg_color:get_color_from_hex("#7b9cb5")
+            #     ripple_behavior: True
+            #     elevation:0
+
+            #     MDLabel:
+            #         size_hint:0.5,0.5
+            #         text: "1"
+            #         theme_text_color:"Custom"
+            #         font_size:self.height
+            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
+            #         text_color:get_color_from_hex("#f2eded")
+            #         pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            #         #md_bg_color:get_color_from_hex("#fefefe")
+            #         halign:"center"
+
+            #     MDLabel:
+            #         size_hint:0.3,0.3
+            #         text: "!"
+            #         theme_text_color:"Custom"
+            #         font_size:self.height
+            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
+            #         text_color:get_color_from_hex("#f2eded")
+            #         pos_hint: {'center_x': 0,'center_y': 0.8}
+            #         #md_bg_color:get_color_from_hex("#fefefe")
+            #         halign:"center"
+
+            # MDCard:
+            #     size_hint: 0.05,0.1
+            #     radius:6,6,6,6
+            #     pos_hint: {'x': 0.12,'y': .9}   
+            #     #md_bg_color:(0,0,0,0)
+            #     md_bg_color:get_color_from_hex("#7b9cb5")
+            #     ripple_behavior: True
+            #     elevation:0
+
+            #     MDLabel:
+            #         size_hint:0.5,0.5
+            #         text: "2"
+            #         theme_text_color:"Custom"
+            #         font_size:self.height
+            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
+            #         text_color:get_color_from_hex("#f2eded")
+            #         pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            #         #md_bg_color:get_color_from_hex("#fefefe")
+            #         halign:"center"
+
+            #     MDLabel:
+            #         size_hint:0.3,0.3
+            #         text: "@"
+            #         theme_text_color:"Custom"
+            #         font_size:self.height
+            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
+            #         text_color:get_color_from_hex("#f2eded")
+            #         pos_hint: {'center_x': 0,'center_y': 0.8}
+            #         #md_bg_color:get_color_from_hex("#fefefe")
+            #         halign:"center"
+            
+
+    
 class WifiPasswordWindow(Screen):
     def __init__(self, wifiApp, **kw):
         self.wifiApp = wifiApp
         super().__init__(**kw)
 
     def on_pre_enter(self, *args):
+        self.eng_keyboard_add()
         return super().on_pre_enter(*args)
 
     def on_enter(self, *args):
@@ -99,7 +198,98 @@ class WifiPasswordWindow(Screen):
         return super().on_leave(*args)
 
 
+    def add_mdcard(self,pos_hint):
+        widget_card = MDCard()
+        widget_card.size_hint = 0.05,0.1
+        widget_card.radius = 6,6,6,6
+        widget_card.pos_hint = pos_hint 
+        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.ripple_behavior: True
+        widget_card.elevation = True
+        return widget_card
+    
 
+            #     MDLabel:
+            #         size_hint:0.5,0.5
+            #         text: "'"
+            #         theme_text_color:"Custom"
+            #         font_size:self.height
+            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
+            #         text_color:get_color_from_hex("#f2eded")
+            #         pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            #         #md_bg_color:get_color_from_hex("#fefefe")
+            #         halign:"center"
+
+            #     MDLabel:
+            #         size_hint:0.3,0.3
+            #         text: "~"
+            #         theme_text_color:"Custom"
+            #         font_size:self.height
+            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
+            #         text_color:get_color_from_hex("#f2eded")
+            #         pos_hint: {'center_x': 0,'center_y': 0.8}
+            #         #md_bg_color:get_color_from_hex("#fefefe")
+            #         halign:"center"
+    
+    def add_top_label(self,text):
+        widget_label = MDLabel()
+        widget_label.size_hint = 0.5,0.5
+        widget_label.text = text
+        widget_label.theme_text_color = "Custom"
+        widget_label.font_size = "25sp"
+        widget_label.font_name = "font/SF-Pro-Rounded-Medium.otf"
+        widget_label.text_color = get_color_from_hex("#f2eded")
+        widget_label.pos_hint = {'center_x': 0.5,'center_y': 0.5}
+        widget_label.halign = "center"
+        return widget_label
+
+    def add_main_label(self,text):
+        widget_label = MDLabel()
+        widget_label.size_hint = 0.3,0.3
+        widget_label.text = text
+        widget_label.theme_text_color = "Custom"
+        widget_label.font_size = "20sp"
+        widget_label.font_name = "font/SF-Pro-Rounded-Medium.otf"
+        widget_label.text_color = get_color_from_hex("#f2eded")
+        widget_label.pos_hint = {'center_x': 0,'center_y': 0.8}
+        widget_label.halign = "center"
+        return widget_label
+    
+    def add_keyboard_key(self,pos_hint,text_top,text_main):
+        pos_hint = pos_hint
+        mdcard = self.add_mdcard(pos_hint)
+        top_label = self.add_top_label(text_top)
+        main_label = self.add_main_label(text_main)
+        mdcard.add_widget(top_label)
+        mdcard.add_widget(main_label)
+        self.ids.keyboard.add_widget(mdcard)
+
+    
+    def eng_keyboard_add(self):
+        #     '     ~
+        self.add_keyboard_key({'x': 0,'y': .9},"'","~")
+        #       1       !
+        self.add_keyboard_key({'x': 0.06,'y': .9},"1","!")
+        #       2       @
+        self.add_keyboard_key({'x': 0.12,'y': .9},"2","@")
+        #       3       #
+        self.add_keyboard_key({'x': 0.18,'y': .9},"3","#")
+        #       4       $
+        self.add_keyboard_key({'x': 0.24,'y': .9},"4","$")
+        #       5       %
+        self.add_keyboard_key({'x': 0.3,'y': .9},"5","%")
+        #       6       ^
+        self.add_keyboard_key({'x': 0.36,'y': .9},"6","^")
+        #       7       &
+        self.add_keyboard_key({'x': 0.42,'y': .9},"7","&")
+        #       8       *
+        self.add_keyboard_key({'x': 0.48,'y': .9},"8","*")
+        #       9       (
+        self.add_keyboard_key({'x': 0.54,'y': .9},"9","(")
+        #       0       )
+        self.add_keyboard_key({'x': 0.6,'y': .9},"0",")")
+        #       -       _
+        self.add_keyboard_key({'x': 0.66,'y': .9},"-","_")
     
 
 class WifiApp(MDApp):
@@ -324,7 +514,7 @@ class Application:
         return asyncio.gather(self.run_app())
     
 if __name__ == '__main__':
-    Window.size = (500, 300)
+    Window.size = (800, 500)
 
     loop = asyncio.get_event_loop()
     app = Application(loop)
