@@ -2,6 +2,7 @@ import os
 os.environ['KIVY_GL_BACKEND'] = 'sdl2'
 from kivy.config import Config
 Config.set('kivy','keyboard_mode', 'dock')
+Config.set('graphics', 'rotation', '0')
 from ast import Str
 import asyncio
 import imp
@@ -24,6 +25,7 @@ from kivy.uix.vkeyboard import *
 from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
 from kivy.utils import get_color_from_hex
+from kivy.uix.image import Image
 
 class HomeWindow(Screen):
     def __init__(self, wifiApp, **kw):
@@ -80,103 +82,6 @@ class WifiSelectorWindow(Screen):
     
     def on_leave(self, *args):
         return super().on_leave(*args)
-    
-
-    
-
-            # MDCard:
-            #     size_hint: 0.05,0.1
-            #     radius:6,6,6,6
-            #     pos_hint: {'x': 0,'y': .9}   
-            #     #md_bg_color:(0,0,0,0)
-            #     md_bg_color:get_color_from_hex("#7b9cb5")
-            #     ripple_behavior: True
-            #     elevation:0
-
-            #     MDLabel:
-            #         size_hint:0.5,0.5
-            #         text: "'"
-            #         theme_text_color:"Custom"
-            #         font_size:self.height
-            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
-            #         text_color:get_color_from_hex("#f2eded")
-            #         pos_hint: {'center_x': 0.5,'center_y': 0.5}
-            #         #md_bg_color:get_color_from_hex("#fefefe")
-            #         halign:"center"
-
-            #     MDLabel:
-            #         size_hint:0.3,0.3
-            #         text: "~"
-            #         theme_text_color:"Custom"
-            #         font_size:self.height
-            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
-            #         text_color:get_color_from_hex("#f2eded")
-            #         pos_hint: {'center_x': 0,'center_y': 0.8}
-            #         #md_bg_color:get_color_from_hex("#fefefe")
-            #         halign:"center"
-
-            # MDCard:
-            #     size_hint: 0.05,0.1
-            #     radius:6,6,6,6
-            #     pos_hint: {'x': 0.06,'y': .9}   
-            #     #md_bg_color:(0,0,0,0)
-            #     md_bg_color:get_color_from_hex("#7b9cb5")
-            #     ripple_behavior: True
-            #     elevation:0
-
-            #     MDLabel:
-            #         size_hint:0.5,0.5
-            #         text: "1"
-            #         theme_text_color:"Custom"
-            #         font_size:self.height
-            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
-            #         text_color:get_color_from_hex("#f2eded")
-            #         pos_hint: {'center_x': 0.5,'center_y': 0.5}
-            #         #md_bg_color:get_color_from_hex("#fefefe")
-            #         halign:"center"
-
-            #     MDLabel:
-            #         size_hint:0.3,0.3
-            #         text: "!"
-            #         theme_text_color:"Custom"
-            #         font_size:self.height
-            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
-            #         text_color:get_color_from_hex("#f2eded")
-            #         pos_hint: {'center_x': 0,'center_y': 0.8}
-            #         #md_bg_color:get_color_from_hex("#fefefe")
-            #         halign:"center"
-
-            # MDCard:
-            #     size_hint: 0.05,0.1
-            #     radius:6,6,6,6
-            #     pos_hint: {'x': 0.12,'y': .9}   
-            #     #md_bg_color:(0,0,0,0)
-            #     md_bg_color:get_color_from_hex("#7b9cb5")
-            #     ripple_behavior: True
-            #     elevation:0
-
-            #     MDLabel:
-            #         size_hint:0.5,0.5
-            #         text: "2"
-            #         theme_text_color:"Custom"
-            #         font_size:self.height
-            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
-            #         text_color:get_color_from_hex("#f2eded")
-            #         pos_hint: {'center_x': 0.5,'center_y': 0.5}
-            #         #md_bg_color:get_color_from_hex("#fefefe")
-            #         halign:"center"
-
-            #     MDLabel:
-            #         size_hint:0.3,0.3
-            #         text: "@"
-            #         theme_text_color:"Custom"
-            #         font_size:self.height
-            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
-            #         text_color:get_color_from_hex("#f2eded")
-            #         pos_hint: {'center_x': 0,'center_y': 0.8}
-            #         #md_bg_color:get_color_from_hex("#fefefe")
-            #         halign:"center"
-            
 
     
 class WifiPasswordWindow(Screen):
@@ -200,36 +105,13 @@ class WifiPasswordWindow(Screen):
 
     def add_mdcard(self,pos_hint):
         widget_card = MDCard()
-        widget_card.size_hint = 0.05,0.1
+        widget_card.size_hint = 0.06,0.15
         widget_card.radius = 6,6,6,6
         widget_card.pos_hint = pos_hint 
         widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
         widget_card.ripple_behavior: True
         widget_card.elevation = True
         return widget_card
-    
-
-            #     MDLabel:
-            #         size_hint:0.5,0.5
-            #         text: "'"
-            #         theme_text_color:"Custom"
-            #         font_size:self.height
-            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
-            #         text_color:get_color_from_hex("#f2eded")
-            #         pos_hint: {'center_x': 0.5,'center_y': 0.5}
-            #         #md_bg_color:get_color_from_hex("#fefefe")
-            #         halign:"center"
-
-            #     MDLabel:
-            #         size_hint:0.3,0.3
-            #         text: "~"
-            #         theme_text_color:"Custom"
-            #         font_size:self.height
-            #         font_name: "font/SF-Pro-Rounded-Medium.otf"
-            #         text_color:get_color_from_hex("#f2eded")
-            #         pos_hint: {'center_x': 0,'center_y': 0.8}
-            #         #md_bg_color:get_color_from_hex("#fefefe")
-            #         halign:"center"
     
     def add_top_label(self,text):
         widget_label = MDLabel()
@@ -264,32 +146,203 @@ class WifiPasswordWindow(Screen):
         mdcard.add_widget(main_label)
         self.ids.keyboard.add_widget(mdcard)
 
+
+    def add_delete(self):
+        widget_card = MDCard()
+        widget_card.size_hint = 0.06,0.15
+        widget_card.radius = 6,6,6,6
+        widget_card.pos_hint = {'x': 0.91,'y': .9}
+        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.ripple_behavior: True
+        widget_card.elevation = True
+
+        image = Image()
+        image.source = "delete.png"
+        image.size_hint = 0.5,0.5
+        image.pos_hint = {'center_x': 0.5,'center_y': 0.5}
+
+        widget_card.add_widget(image)
+        self.ids.keyboard.add_widget(widget_card)
+
+    def add_tab(self):
+        widget_card = MDCard()
+        widget_card.size_hint = 0.1,0.15
+        widget_card.radius = 6,6,6,6
+        widget_card.pos_hint = {'x': 0,'y': .72}
+        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.ripple_behavior: True
+        widget_card.elevation = True
+
+        image = Image()
+        image.source = "tab.png"
+        image.size_hint = 0.5,0.5
+        image.pos_hint = {'center_x': 0.5,'center_y': 0.5}
+
+        widget_card.add_widget(image)
+        self.ids.keyboard.add_widget(widget_card)
+
+    def add_caps_lock(self):
+        widget_card = MDCard()
+        widget_card.size_hint = 0.1,0.15
+        widget_card.radius = 6,6,6,6
+        widget_card.pos_hint = {'x': 0,'y': .54}
+        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.ripple_behavior: True
+        widget_card.elevation = True
+
+        image = Image()
+        image.source = "caps_lock.png"
+        image.size_hint = 0.4,0.4
+        image.pos_hint = {'center_x': 0.5,'center_y': 0.5}
+
+        widget_card.add_widget(image)
+        self.ids.keyboard.add_widget(widget_card)
+
+    def add_shift(self):
+        widget_card = MDCard()
+        widget_card.size_hint = 0.1,0.15
+        widget_card.radius = 6,6,6,6
+        widget_card.pos_hint = {'x': 0,'y': .36}
+        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.ripple_behavior: True
+        widget_card.elevation = True
+
+        image = Image()
+        image.source = "shift.png"
+        image.size_hint = 0.4,0.4
+        image.pos_hint = {'center_x': 0.5,'center_y': 0.5}
+
+        widget_card.add_widget(image)
+        self.ids.keyboard.add_widget(widget_card)
+
+    def add_enter(self):
+        widget_card = MDCard()
+        widget_card.size_hint = 0.1,0.15
+        widget_card.radius = 6,6,6,6
+        widget_card.pos_hint = {'x': .88,'y': .54}
+        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.ripple_behavior: True
+        widget_card.elevation = True
+
+        image = Image()
+        image.source = "enter.png"
+        image.size_hint = 0.4,0.4
+        image.pos_hint = {'center_x': 0.5,'center_y': 0.5}
+
+        widget_card.add_widget(image)
+        self.ids.keyboard.add_widget(widget_card)
+
     
     def eng_keyboard_add(self):
+        # ------------------------------------ 1. Satır ------------------------------------------
         #     '     ~
         self.add_keyboard_key({'x': 0,'y': .9},"'","~")
         #       1       !
-        self.add_keyboard_key({'x': 0.06,'y': .9},"1","!")
+        self.add_keyboard_key({'x': 0.07,'y': .9},"1","!")
         #       2       @
-        self.add_keyboard_key({'x': 0.12,'y': .9},"2","@")
+        self.add_keyboard_key({'x': 0.14,'y': .9},"2","@")
         #       3       #
-        self.add_keyboard_key({'x': 0.18,'y': .9},"3","#")
+        self.add_keyboard_key({'x': 0.21,'y': .9},"3","#")
         #       4       $
-        self.add_keyboard_key({'x': 0.24,'y': .9},"4","$")
+        self.add_keyboard_key({'x': 0.28,'y': .9},"4","$")
         #       5       %
-        self.add_keyboard_key({'x': 0.3,'y': .9},"5","%")
+        self.add_keyboard_key({'x': 0.35,'y': .9},"5","%")
         #       6       ^
-        self.add_keyboard_key({'x': 0.36,'y': .9},"6","^")
+        self.add_keyboard_key({'x': 0.42,'y': .9},"6","^")
         #       7       &
-        self.add_keyboard_key({'x': 0.42,'y': .9},"7","&")
+        self.add_keyboard_key({'x': 0.49,'y': .9},"7","&")
         #       8       *
-        self.add_keyboard_key({'x': 0.48,'y': .9},"8","*")
+        self.add_keyboard_key({'x': 0.56,'y': .9},"8","*")
         #       9       (
-        self.add_keyboard_key({'x': 0.54,'y': .9},"9","(")
+        self.add_keyboard_key({'x': 0.63,'y': .9},"9","(")
         #       0       )
-        self.add_keyboard_key({'x': 0.6,'y': .9},"0",")")
+        self.add_keyboard_key({'x': 0.7,'y': .9},"0",")")
         #       -       _
-        self.add_keyboard_key({'x': 0.66,'y': .9},"-","_")
+        self.add_keyboard_key({'x': 0.77,'y': .9},"-","_")
+        #       =       +
+        self.add_keyboard_key({'x': 0.84,'y': .9},"=","+")
+        # delete
+        self.add_delete()
+        # ------------------------------------ 2. Satır ------------------------------------------
+        # tab
+        self.add_tab()
+        #       q       Q
+        self.add_keyboard_key({'x': 0.11,'y': .72},"q","Q")
+        #       w       W
+        self.add_keyboard_key({'x': 0.18,'y': .72},"w","W")
+        #       e       E
+        self.add_keyboard_key({'x': 0.25,'y': .72},"e","E")
+        #       r       R
+        self.add_keyboard_key({'x': 0.32,'y': .72},"r","R")
+        #       t       T
+        self.add_keyboard_key({'x': 0.39,'y': .72},"t","T")
+        #       y       Y
+        self.add_keyboard_key({'x': 0.46,'y': .72},"y","Y")
+        #       u       U
+        self.add_keyboard_key({'x': 0.53,'y': .72},"u","U")
+        #       i       I
+        self.add_keyboard_key({'x': 0.6,'y': .72},"i","I")
+        #       o       O
+        self.add_keyboard_key({'x': 0.67,'y': .72},"o","O")
+        #       p       P
+        self.add_keyboard_key({'x': 0.74,'y': .72},"p","P")
+        #       [       {
+        self.add_keyboard_key({'x': 0.81,'y': .72},"[","{")
+        #       \       |
+        self.add_keyboard_key({'x': 0.88,'y': .72}, " \ ", " | " )
+        # ------------------------------------ 3. Satır ------------------------------------------
+        # caps lock
+        self.add_caps_lock()
+        #       a       A
+        self.add_keyboard_key({'x': 0.11,'y': .54},"a","A")
+        #       s       S
+        self.add_keyboard_key({'x': 0.18,'y': .54},"s","S")
+        #       d       D
+        self.add_keyboard_key({'x': 0.25,'y': .54},"d","D")
+        #       f       F
+        self.add_keyboard_key({'x': 0.32,'y': .54},"f","F")
+        #       g       G
+        self.add_keyboard_key({'x': 0.39,'y': .54},"g","G")
+        #       h       H
+        self.add_keyboard_key({'x': 0.46,'y': .54},"h","H")
+        #       j       J
+        self.add_keyboard_key({'x': 0.53,'y': .54},"j","J")
+        #       k       K
+        self.add_keyboard_key({'x': 0.6,'y': .54},"k","K")
+        #       l       L
+        self.add_keyboard_key({'x': 0.67,'y': .54},"l","L")
+        #       ;       :
+        self.add_keyboard_key({'x': 0.74,'y': .54},";",":")
+        #       `       "
+        self.add_keyboard_key({'x': 0.81,'y': .54}," ` "," \" ")
+        # enter
+        self.add_enter()
+        # ------------------------------------ 4. Satır ------------------------------------------
+        # shift
+        self.add_shift()
+        #       z       Z
+        self.add_keyboard_key({'x': 0.11,'y': .36},"z","Z")
+        #       x       X
+        self.add_keyboard_key({'x': 0.18,'y': .36},"x","X")
+        #       c       C
+        self.add_keyboard_key({'x': 0.25,'y': .36},"c","C")
+        #       v       V
+        self.add_keyboard_key({'x': 0.32,'y': .36},"v","V")
+        #       b       B
+        self.add_keyboard_key({'x': 0.39,'y': .36},"b","B")
+        #       n       N
+        self.add_keyboard_key({'x': 0.46,'y': .36},"n","N")
+        #       m       M
+        self.add_keyboard_key({'x': 0.53,'y': .36},"m","M")
+        #       ,       <
+        self.add_keyboard_key({'x': 0.6,'y': .36},",","<")
+        #       .       >
+        self.add_keyboard_key({'x': 0.67,'y': .36},".",">")
+        #       /       ?
+        self.add_keyboard_key({'x': 0.74,'y': .36},"/","?")
+        
+
+
     
 
 class WifiApp(MDApp):
@@ -299,7 +352,7 @@ class WifiApp(MDApp):
         self.home_window = None
         self.wifi_selector_window = None
 
-        self.active_wifi_names = ["Atlastek1", "Atlastek2", "Atlastek3", "Atlastek4", "Atlastek5", "Atlastek6", "Atlastek7","Atlastek8"]
+        self.active_wifi_names = ["Atlastek", "DIRECT-3D-HP", "testd", "Atlastek2", "Atlastek5", "Atlastek6", "Atlastek7","Atlastek8"]
 
         threading.Thread(target=self.main,daemon=True).start()
 
@@ -486,6 +539,7 @@ class Application:
         while True:  # Loop to capture keys continuously
             try:
                 event = keyboard.read_event()
+                print(event)
                 if event.event_type == keyboard.KEY_DOWN:
                     self.key_down_press += 1
                 if event.event_type == keyboard.KEY_UP:
