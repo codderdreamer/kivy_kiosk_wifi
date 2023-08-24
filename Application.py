@@ -451,7 +451,9 @@ class Application:
 
         self.old_x = 0
         self.old_y = 0
-        print("app******************************************************************************************")
+
+        self.evet_keyboard = False
+        
         threading.Thread(target=self.key_control, daemon=True).start()
 
 
@@ -571,7 +573,7 @@ class Application:
                 self.wifiApp.wifi_password_window.ids["key_" + str(self.password_right_counter) + "_" + str(self.password_down_counter)].md_bg_color = get_color_from_hex("#91b5cf")
                 self.old_x = self.password_right_counter
                 self.old_y = self.password_down_counter
-                
+
         self.evet_keyboard=False
 
 
