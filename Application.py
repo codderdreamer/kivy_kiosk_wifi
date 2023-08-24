@@ -453,7 +453,7 @@ class Application:
 
         self.old_x = 0
         self.old_y = 0
-
+        print("app******************************************************************************************")
         threading.Thread(target=self.key_control, daemon=True).start()
 
 
