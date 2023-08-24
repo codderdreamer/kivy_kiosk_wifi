@@ -76,7 +76,7 @@ class WifiSelectorWindow(Screen):
         return super().on_pre_enter(*args)
 
     def on_enter(self, *args):
-        webbrowser.open(webbrowser.open('https://google.com'))
+        webbrowser.open('https://google.com')
         return super().on_enter(*args)
     
     def on_pre_leave(self, *args):
