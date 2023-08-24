@@ -26,6 +26,7 @@ from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
 from kivy.utils import get_color_from_hex
 from kivy.uix.image import Image
+import webbrowser
 
 class HomeWindow(Screen):
     def __init__(self, wifiApp, **kw):
@@ -75,6 +76,7 @@ class WifiSelectorWindow(Screen):
         return super().on_pre_enter(*args)
 
     def on_enter(self, *args):
+        webbrowser.open(webbrowser.open('https://google.com'))
         return super().on_enter(*args)
     
     def on_pre_leave(self, *args):
@@ -103,12 +105,13 @@ class WifiPasswordWindow(Screen):
         return super().on_leave(*args)
 
 
-    def add_mdcard(self,pos_hint):
+    def add_mdcard(self,pos_hint,key_x,key_y):
         widget_card = MDCard()
+        self.ids["key_" + str(key_x) + "_" + str(key_y)] = widget_card
         widget_card.size_hint = 0.06,0.15
         widget_card.radius = 6,6,6,6
         widget_card.pos_hint = pos_hint 
-        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.md_bg_color = get_color_from_hex("#465966")
         widget_card.ripple_behavior: True
         widget_card.elevation = True
         return widget_card
@@ -137,9 +140,9 @@ class WifiPasswordWindow(Screen):
         widget_label.halign = "center"
         return widget_label
     
-    def add_keyboard_key(self,pos_hint,text_top,text_main):
+    def add_keyboard_key(self,pos_hint,text_top,text_main,key_x,key_y):
         pos_hint = pos_hint
-        mdcard = self.add_mdcard(pos_hint)
+        mdcard = self.add_mdcard(pos_hint,key_x,key_y)
         top_label = self.add_top_label(text_top)
         main_label = self.add_main_label(text_main)
         mdcard.add_widget(top_label)
@@ -147,12 +150,12 @@ class WifiPasswordWindow(Screen):
         self.ids.keyboard.add_widget(mdcard)
 
 
-    def add_delete(self):
+    def add_delete(self,key_x,key_y):
         widget_card = MDCard()
         widget_card.size_hint = 0.06,0.15
         widget_card.radius = 6,6,6,6
         widget_card.pos_hint = {'x': 0.91,'y': .9}
-        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.md_bg_color = get_color_from_hex("#465966")
         widget_card.ripple_behavior: True
         widget_card.elevation = True
 
@@ -162,14 +165,16 @@ class WifiPasswordWindow(Screen):
         image.pos_hint = {'center_x': 0.5,'center_y': 0.5}
 
         widget_card.add_widget(image)
-        self.ids.keyboard.add_widget(widget_card)
 
-    def add_tab(self):
+        self.ids.keyboard.add_widget(widget_card)
+        self.ids["key_" + str(key_x) + "_" + str(key_y)] = widget_card
+
+    def add_tab(self,key_x,key_y):
         widget_card = MDCard()
         widget_card.size_hint = 0.1,0.15
         widget_card.radius = 6,6,6,6
         widget_card.pos_hint = {'x': 0,'y': .72}
-        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.md_bg_color = get_color_from_hex("#465966")
         widget_card.ripple_behavior: True
         widget_card.elevation = True
 
@@ -179,14 +184,16 @@ class WifiPasswordWindow(Screen):
         image.pos_hint = {'center_x': 0.5,'center_y': 0.5}
 
         widget_card.add_widget(image)
-        self.ids.keyboard.add_widget(widget_card)
 
-    def add_caps_lock(self):
+        self.ids.keyboard.add_widget(widget_card)
+        self.ids["key_" + str(key_x) + "_" + str(key_y)] = widget_card
+
+    def add_caps_lock(self,key_x,key_y):
         widget_card = MDCard()
         widget_card.size_hint = 0.12,0.15
         widget_card.radius = 6,6,6,6
         widget_card.pos_hint = {'x': 0,'y': .54}
-        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.md_bg_color = get_color_from_hex("#465966")
         widget_card.ripple_behavior: True
         widget_card.elevation = True
 
@@ -196,14 +203,16 @@ class WifiPasswordWindow(Screen):
         image.pos_hint = {'center_x': 0.5,'center_y': 0.5}
 
         widget_card.add_widget(image)
-        self.ids.keyboard.add_widget(widget_card)
 
-    def add_enter(self):
+        self.ids.keyboard.add_widget(widget_card)
+        self.ids["key_" + str(key_x) + "_" + str(key_y)] = widget_card
+
+    def add_enter(self,key_x,key_y):
         widget_card = MDCard()
         widget_card.size_hint = 0.07,0.31
         widget_card.radius = 6,6,6,6
         widget_card.pos_hint = {'x': .9,'y': .38}
-        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.md_bg_color = get_color_from_hex("#465966")
         widget_card.ripple_behavior: True
         widget_card.elevation = True
 
@@ -214,13 +223,14 @@ class WifiPasswordWindow(Screen):
 
         widget_card.add_widget(image)
         self.ids.keyboard.add_widget(widget_card)
+        self.ids["key_" + str(key_x) + "_" + str(key_y)] = widget_card
 
-    def add_shift(self):
+    def add_shift(self,key_x,key_y):
         widget_card = MDCard()
         widget_card.size_hint = 0.16,0.15
         widget_card.radius = 6,6,6,6
         widget_card.pos_hint = {'x': 0,'y': .36}
-        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.md_bg_color = get_color_from_hex("#465966")
         widget_card.ripple_behavior: True
         widget_card.elevation = True
 
@@ -230,133 +240,133 @@ class WifiPasswordWindow(Screen):
         image.pos_hint = {'center_x': 0.5,'center_y': 0.5}
 
         widget_card.add_widget(image)
-        self.ids.keyboard.add_widget(widget_card)
 
-    def add_space(self):
+        self.ids.keyboard.add_widget(widget_card)
+        self.ids["key_" + str(key_x) + "_" + str(key_y)] = widget_card
+
+    def add_space(self,key_x,key_y):
         widget_card = MDCard()
         widget_card.size_hint = 0.8,0.15
         widget_card.radius = 6,6,6,6
         widget_card.pos_hint = {'x': 0.1,'y': .18}
-        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.md_bg_color = get_color_from_hex("#465966")
         widget_card.ripple_behavior: True
         widget_card.elevation = True
 
         self.ids.keyboard.add_widget(widget_card)
-
-
-
-
+        self.ids["key_" + str(key_x) + "_" + str(key_y)] = widget_card
 
     
     def eng_keyboard_add(self):
-        # ------------------------------------ 1. Satır ------------------------------------------
+        # ------------------------------------ 1. Satır ------------------------------------------ 13,0
         #     '     ~
-        self.add_keyboard_key({'x': 0,'y': .9},"'","~")
+        self.add_keyboard_key({'x': 0,'y': .9},"'","~",0,0)
         #       1       !
-        self.add_keyboard_key({'x': 0.07,'y': .9},"1","!")
+        self.add_keyboard_key({'x': 0.07,'y': .9},"1","!",1,0)
         #       2       @
-        self.add_keyboard_key({'x': 0.14,'y': .9},"2","@")
+        self.add_keyboard_key({'x': 0.14,'y': .9},"2","@",2,0)
         #       3       #
-        self.add_keyboard_key({'x': 0.21,'y': .9},"3","#")
+        self.add_keyboard_key({'x': 0.21,'y': .9},"3","#",3,0)
         #       4       $
-        self.add_keyboard_key({'x': 0.28,'y': .9},"4","$")
+        self.add_keyboard_key({'x': 0.28,'y': .9},"4","$",4,0)
         #       5       %
-        self.add_keyboard_key({'x': 0.35,'y': .9},"5","%")
+        self.add_keyboard_key({'x': 0.35,'y': .9},"5","%",5,0)
         #       6       ^
-        self.add_keyboard_key({'x': 0.42,'y': .9},"6","^")
+        self.add_keyboard_key({'x': 0.42,'y': .9},"6","^",6,0)
         #       7       &
-        self.add_keyboard_key({'x': 0.49,'y': .9},"7","&")
+        self.add_keyboard_key({'x': 0.49,'y': .9},"7","&",7,0)
         #       8       *
-        self.add_keyboard_key({'x': 0.56,'y': .9},"8","*")
+        self.add_keyboard_key({'x': 0.56,'y': .9},"8","*",8,0)
         #       9       (
-        self.add_keyboard_key({'x': 0.63,'y': .9},"9","(")
+        self.add_keyboard_key({'x': 0.63,'y': .9},"9","(",9,0)
         #       0       )
-        self.add_keyboard_key({'x': 0.7,'y': .9},"0",")")
+        self.add_keyboard_key({'x': 0.7,'y': .9},"0",")",10,0)
         #       -       _
-        self.add_keyboard_key({'x': 0.77,'y': .9},"-","_")
+        self.add_keyboard_key({'x': 0.77,'y': .9},"-","_",11,0)
         #       =       +
-        self.add_keyboard_key({'x': 0.84,'y': .9},"=","+")
+        self.add_keyboard_key({'x': 0.84,'y': .9},"=","+",12,0)
         # delete
-        self.add_delete()
-        # ------------------------------------ 2. Satır ------------------------------------------
+        self.add_delete(13,0)
+        # ------------------------------------ 2. Satır ------------------------------------------ 12, 1
         # tab
-        self.add_tab()
+        self.add_tab(0,1)
         #       q       Q
-        self.add_keyboard_key({'x': 0.11,'y': .72},"q","Q")
+        self.add_keyboard_key({'x': 0.11,'y': .72},"q","Q",1,1)
         #       w       W
-        self.add_keyboard_key({'x': 0.18,'y': .72},"w","W")
+        self.add_keyboard_key({'x': 0.18,'y': .72},"w","W",2,1)
         #       e       E
-        self.add_keyboard_key({'x': 0.25,'y': .72},"e","E")
+        self.add_keyboard_key({'x': 0.25,'y': .72},"e","E",3,1)
         #       r       R
-        self.add_keyboard_key({'x': 0.32,'y': .72},"r","R")
+        self.add_keyboard_key({'x': 0.32,'y': .72},"r","R",4,1)
         #       t       T
-        self.add_keyboard_key({'x': 0.39,'y': .72},"t","T")
+        self.add_keyboard_key({'x': 0.39,'y': .72},"t","T",5,1)
         #       y       Y
-        self.add_keyboard_key({'x': 0.46,'y': .72},"y","Y")
+        self.add_keyboard_key({'x': 0.46,'y': .72},"y","Y",6,1)
         #       u       U
-        self.add_keyboard_key({'x': 0.53,'y': .72},"u","U")
+        self.add_keyboard_key({'x': 0.53,'y': .72},"u","U",7,1)
         #       i       I
-        self.add_keyboard_key({'x': 0.6,'y': .72},"i","I")
+        self.add_keyboard_key({'x': 0.6,'y': .72},"i","I",8,1)
         #       o       O
-        self.add_keyboard_key({'x': 0.67,'y': .72},"o","O")
+        self.add_keyboard_key({'x': 0.67,'y': .72},"o","O",9,1)
         #       p       P
-        self.add_keyboard_key({'x': 0.74,'y': .72},"p","P")
+        self.add_keyboard_key({'x': 0.74,'y': .72},"p","P",10,1)
         #       [       {
-        self.add_keyboard_key({'x': 0.81,'y': .72},"[","{")
+        self.add_keyboard_key({'x': 0.81,'y': .72},"[","{",11,1)
         #       \       |
-        self.add_keyboard_key({'x': 0.88,'y': .72}, " \ ", " | " )
-        # ------------------------------------ 3. Satır ------------------------------------------
+        self.add_keyboard_key({'x': 0.88,'y': .72}, " \ ", " | " ,12,1)
+        # ------------------------------------ 3. Satır ------------------------------------------ 12, 2
         # caps lock
-        self.add_caps_lock()
+        self.add_caps_lock(0,2)
         #       a       A
-        self.add_keyboard_key({'x': 0.13,'y': .54},"a","A")
+        self.add_keyboard_key({'x': 0.13,'y': .54},"a","A",1,2)
         #       s       S
-        self.add_keyboard_key({'x': 0.2,'y': .54},"s","S")
+        self.add_keyboard_key({'x': 0.2,'y': .54},"s","S",2,2)
         #       d       D
-        self.add_keyboard_key({'x': 0.27,'y': .54},"d","D")
+        self.add_keyboard_key({'x': 0.27,'y': .54},"d","D",3,2)
         #       f       F
-        self.add_keyboard_key({'x': 0.34,'y': .54},"f","F")
+        self.add_keyboard_key({'x': 0.34,'y': .54},"f","F",4,2)
         #       g       G
-        self.add_keyboard_key({'x': 0.41,'y': .54},"g","G")
+        self.add_keyboard_key({'x': 0.41,'y': .54},"g","G",5,2)
         #       h       H
-        self.add_keyboard_key({'x': 0.48,'y': .54},"h","H")
+        self.add_keyboard_key({'x': 0.48,'y': .54},"h","H",6,2)
         #       j       J
-        self.add_keyboard_key({'x': 0.55,'y': .54},"j","J")
+        self.add_keyboard_key({'x': 0.55,'y': .54},"j","J",7,2)
         #       k       K
-        self.add_keyboard_key({'x': 0.62,'y': .54},"k","K")
+        self.add_keyboard_key({'x': 0.62,'y': .54},"k","K",8,2)
         #       l       L
-        self.add_keyboard_key({'x': 0.69,'y': .54},"l","L")
+        self.add_keyboard_key({'x': 0.69,'y': .54},"l","L",9,2)
         #       ;       :
-        self.add_keyboard_key({'x': 0.76,'y': .54},";",":")
+        self.add_keyboard_key({'x': 0.76,'y': .54},";",":",10,2)
         #       `       "
-        self.add_keyboard_key({'x': 0.83,'y': .54}," ` "," \" ")
+        self.add_keyboard_key({'x': 0.83,'y': .54}," ` "," \" ",11,2)
         # enter
-        self.add_enter()
-        # ------------------------------------ 4. Satır ------------------------------------------
+        self.add_enter(12,2)
+        # ------------------------------------ 4. Satır ------------------------------------------ 10, 3
         # shift
-        self.add_shift()
+        self.add_shift(0,3)
         #       z       Z
-        self.add_keyboard_key({'x': 0.17,'y': .36},"z","Z")
+        self.add_keyboard_key({'x': 0.17,'y': .36},"z","Z",1,3)
         #       x       X
-        self.add_keyboard_key({'x': 0.24,'y': .36},"x","X")
+        self.add_keyboard_key({'x': 0.24,'y': .36},"x","X",2,3)
         #       c       C
-        self.add_keyboard_key({'x': 0.31,'y': .36},"c","C")
+        self.add_keyboard_key({'x': 0.31,'y': .36},"c","C",3,3)
         #       v       V
-        self.add_keyboard_key({'x': 0.38,'y': .36},"v","V")
+        self.add_keyboard_key({'x': 0.38,'y': .36},"v","V",4,3)
         #       b       B
-        self.add_keyboard_key({'x': 0.45,'y': .36},"b","B")
+        self.add_keyboard_key({'x': 0.45,'y': .36},"b","B",5,3)
         #       n       N
-        self.add_keyboard_key({'x': 0.52,'y': .36},"n","N")
+        self.add_keyboard_key({'x': 0.52,'y': .36},"n","N",6,3)
         #       m       M
-        self.add_keyboard_key({'x': 0.59,'y': .36},"m","M")
+        self.add_keyboard_key({'x': 0.59,'y': .36},"m","M",7,3)
         #       ,       <
-        self.add_keyboard_key({'x': 0.66,'y': .36},",","<")
+        self.add_keyboard_key({'x': 0.66,'y': .36},",","<",8,3)
         #       .       >
-        self.add_keyboard_key({'x': 0.73,'y': .36},".",">")
+        self.add_keyboard_key({'x': 0.73,'y': .36},".",">",9,3)
         #       /       ?
-        self.add_keyboard_key({'x': 0.8,'y': .36},"/","?")
+        self.add_keyboard_key({'x': 0.8,'y': .36},"/","?",10,3)
+        # ------------------------------------ 5. Satır ------------------------------------------ 0, 4
         # boşluk
-        self.add_space()
+        self.add_space(0,4)
         
 
 
@@ -432,7 +442,16 @@ class Application:
         self.key_down_press = 0
         self.counter = 0
 
+        self.password_right_counter = -1
+        self.password_left_counter = -1
+        self.password_up_counter = -1
+        self.password_down_counter = -1
+
+        self.old_x = 0
+        self.old_y = 0
+
         threading.Thread(target=self.key_control, daemon=True).start()
+
 
     def key_counter(self):
         if self.key_down_press==0:
@@ -496,6 +515,8 @@ class Application:
                     self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
                     self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
                     self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
+            elif self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
+                pass
 
     def key_down(self):
         if self.key_counter():
@@ -521,15 +542,83 @@ class Application:
                     self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
                     self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
                     self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
+            elif self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
+                self.password_down_counter += 1
+                if self.password_down_counter == 5:
+                    self.password_down_counter = 0
+                elif self.password_down_counter == -1:
+                    self.password_down_counter = 0
+                if self.password_right_counter == -1:
+                    self.password_right_counter = 0
+
+                if self.password_down_counter == 4:
+                    self.password_right_counter = 0
+                elif self.password_down_counter == 3:
+                    if self.password_right_counter > 9:
+                        self.password_right_counter = 9
+                elif self.password_down_counter == 2 or self.password_down_counter == 1:
+                    if self.password_right_counter > 11:
+                        self.password_right_counter = 11
+                elif self.password_down_counter == 0:
+                    if self.password_right_counter > 12:
+                        self.password_right_counter = 12
+
+                
+                self.wifiApp.wifi_password_window.ids["key_" + str(self.old_x) + "_" + str(self.old_y)].md_bg_color = get_color_from_hex("#465966")
+                self.wifiApp.wifi_password_window.ids["key_" + str(self.password_right_counter) + "_" + str(self.password_down_counter)].md_bg_color = get_color_from_hex("#91b5cf")
+                self.old_x = self.password_right_counter
+                self.old_y = self.password_down_counter
+
+
+
 
 
     def key_left(self):
         if self.key_counter():
             print('************************* left')
+            if self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
+                self.password_right_counter -= 1
+                if self.password_right_counter == -1 or self.password_right_counter == -2:
+                    if self.password_down_counter == 0:
+                        self.password_right_counter = 13
+                    elif self.password_down_counter == 1 or self.password_down_counter == 2:
+                        self.password_right_counter = 12
+                    elif self.password_down_counter == 3:
+                        self.password_right_counter = 10
+                    elif self.password_down_counter == 4:
+                        self.password_right_counter = 0
+    
+                self.wifiApp.wifi_password_window.ids["key_" + str(self.old_x) + "_" + str(self.old_y)].md_bg_color = get_color_from_hex("#465966")
+                self.wifiApp.wifi_password_window.ids["key_" + str(self.password_right_counter) + "_" + str(self.password_down_counter)].md_bg_color = get_color_from_hex("#91b5cf")
+
+                self.old_x = self.password_right_counter
+                self.old_y = self.password_down_counter
 
     def key_right(self):
         if self.key_counter():
             print('************************* right')
+            if self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
+                self.password_right_counter += 1
+                if self.password_down_counter == -1:
+                    self.password_down_counter = 0
+                self.wifiApp.wifi_password_window.ids["key_" + str(self.old_x) + "_" + str(self.old_y)].md_bg_color = get_color_from_hex("#465966")
+                self.wifiApp.wifi_password_window.ids["key_" + str(self.password_right_counter) + "_" + str(self.password_down_counter)].md_bg_color = get_color_from_hex("#91b5cf")
+                self.old_x = self.password_right_counter
+                self.old_y = self.password_down_counter
+                # keyboard en sona gelmişse başa dönmesi için kullanıyorum
+                if self.password_down_counter == 0:
+                    if self.password_right_counter == 13:
+                        self.password_right_counter = -1
+                elif self.password_down_counter == 1 or self.password_down_counter == 2:
+                    if self.password_right_counter == 12:
+                        self.password_right_counter = -1
+                elif self.password_down_counter == 3:
+                    if self.password_right_counter == 10:
+                        self.password_right_counter = -1
+                elif self.password_down_counter == 4:
+                    if self.password_right_counter == 0:
+                        self.password_right_counter = -1
+
 
     def key_enter(self):
         if self.key_counter():
