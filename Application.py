@@ -26,7 +26,7 @@ from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
 from kivy.utils import get_color_from_hex
 from kivy.uix.image import Image
-# import webbrowser
+import webbrowser
 
 class HomeWindow(Screen):
     def __init__(self, wifiApp, **kw):
@@ -76,7 +76,7 @@ class WifiSelectorWindow(Screen):
         return super().on_pre_enter(*args)
 
     def on_enter(self, *args):
-        # webbrowser.open(webbrowser.open('https://google.com'))
+        webbrowser.open(webbrowser.open('https://google.com'))
         return super().on_enter(*args)
     
     def on_pre_leave(self, *args):
