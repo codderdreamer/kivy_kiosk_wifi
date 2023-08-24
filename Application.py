@@ -671,7 +671,9 @@ class Application:
             if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
                 print("WifiSelectorWindow","enter")
                 #self.wifiApp.openWifiPasswordWindow()
-                self.wifiApp.openWebWindow()
+                #self.wifiApp.openWebWindow()
+                #webbrowser.open('https://google.com')
+                os.system("startx -- -nocursor")
         self.evet_keyboard = False
 
     def key_control(self):
