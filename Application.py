@@ -76,7 +76,6 @@ class WifiSelectorWindow(Screen):
         return super().on_pre_enter(*args)
 
     def on_enter(self, *args):
-        webbrowser.open('https://google.com')
         return super().on_enter(*args)
     
     def on_pre_leave(self, *args):
@@ -368,6 +367,23 @@ class WifiPasswordWindow(Screen):
         # boşluk
         self.add_space(0,4)
         
+class WebWindow(Screen):
+    def __init__(self, wifiApp, **kw):
+        self.wifiApp = wifiApp
+        super().__init__(**kw)
+
+    def on_pre_enter(self, *args):
+        return super().on_pre_enter(*args)
+    
+    def on_enter(self, *args):
+        return super().on_enter(*args)
+    
+    def on_pre_leave(self, *args):
+        return super().on_pre_leave(*args)
+    
+    def on_leave(self, *args):
+        return super().on_leave(*args)
+    
 
 
     
@@ -394,6 +410,10 @@ class WifiApp(MDApp):
     def openWifiPasswordWindow(self):
         Clock.schedule_once(self.call_wifi_password_window, 0)
 
+    def openWebWindow(self):
+        Clock.schedule_once(self.call_web_window, 0)
+
+
     def call_home_window(self,event):
         self.screenmanager.current_screen.manager.current = "HomeWindow"
         self.screenmanager.current_screen.manager.transition.direction = "left"
@@ -404,6 +424,10 @@ class WifiApp(MDApp):
 
     def call_wifi_password_window(self,event):
         self.screenmanager.current_screen.manager.current = "WifiPasswordWindow"
+        self.screenmanager.current_screen.manager.transition.direction = "left"
+
+    def call_web_window(self,event):
+        self.screenmanager.current_screen.manager.current = "WebWindow"
         self.screenmanager.current_screen.manager.transition.direction = "left"
 
     def main(self):
@@ -427,11 +451,15 @@ class WifiApp(MDApp):
         self.home_window = HomeWindow(self,name="HomeWindow")
         self.wifi_selector_window = WifiSelectorWindow(self,name="WifiSelectorWindow")
         self.wifi_password_window = WifiPasswordWindow(self,name="WifiPasswordWindow")
+        self.web_window = WebWindow(self,name="WebWindow")
+
+        
         
 
         self.screenmanager.add_widget(self.home_window)
         self.screenmanager.add_widget(self.wifi_selector_window)
         self.screenmanager.add_widget(self.wifi_password_window)
+        self.screenmanager.add_widget(self.web_window)
 
 
         return self.screenmanager
@@ -642,7 +670,8 @@ class Application:
             print('************************* enter')
             if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
                 print("WifiSelectorWindow","enter")
-                self.wifiApp.openWifiPasswordWindow()
+                #self.wifiApp.openWifiPasswordWindow()
+                self.wifiApp.openWebWindow()
         self.evet_keyboard = False
 
     def key_control(self):
