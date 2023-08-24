@@ -522,7 +522,7 @@ class Application:
 
     def key_down(self):
         print("downnnnnnnnnnnnnnnnn")
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* down')
             if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
                 print("WifiSelectorWindow","down")
@@ -571,7 +571,8 @@ class Application:
                 self.wifiApp.wifi_password_window.ids["key_" + str(self.password_right_counter) + "_" + str(self.password_down_counter)].md_bg_color = get_color_from_hex("#91b5cf")
                 self.old_x = self.password_right_counter
                 self.old_y = self.password_down_counter
-
+                
+        self.evet_keyboard=False
 
 
 
@@ -653,6 +654,7 @@ class Application:
             try:
                 event = keyboard.read_event()
                 print(event)
+                self.evet_keyboard = True
                 if event.event_type == keyboard.KEY_DOWN:
                     self.key_down_press += 1
                 if event.event_type == keyboard.KEY_UP:
