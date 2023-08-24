@@ -521,6 +521,7 @@ class Application:
                 pass
 
     def key_down(self):
+        print("downnnnnnnnnnnnnnnnn")
         if self.key_counter():
             print('************************* down')
             if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
