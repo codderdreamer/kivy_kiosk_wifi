@@ -634,18 +634,21 @@ class Application:
 
     def key_control(self):
         self.wifiApp.a = True
-        keyboard.add_hotkey('ctrl+shift+1', self.key1)
-        keyboard.add_hotkey('ctrl+shift+2', self.key2)
-        keyboard.add_hotkey('ctrl+shift+3', self.key3)
-        keyboard.add_hotkey('ctrl+shift+4', self.key4)
-        keyboard.add_hotkey('ctrl+shift+5', self.key5)
-        keyboard.add_hotkey('ctrl+shift+6', self.key6)
-        keyboard.add_hotkey('ctrl+shift+7', self.key7)
-        keyboard.add_hotkey('up',self.key_up)
-        keyboard.add_hotkey('down',self.key_down)
-        keyboard.add_hotkey('right',self.key_right)
-        keyboard.add_hotkey('left',self.key_left)
-        keyboard.add_hotkey('enter',self.key_enter)
+        try:
+            keyboard.add_hotkey('ctrl+shift+1', self.key1)
+            keyboard.add_hotkey('ctrl+shift+2', self.key2)
+            keyboard.add_hotkey('ctrl+shift+3', self.key3)
+            keyboard.add_hotkey('ctrl+shift+4', self.key4)
+            keyboard.add_hotkey('ctrl+shift+5', self.key5)
+            keyboard.add_hotkey('ctrl+shift+6', self.key6)
+            keyboard.add_hotkey('ctrl+shift+7', self.key7)
+            keyboard.add_hotkey('up',self.key_up)
+            keyboard.add_hotkey('down',self.key_down)
+            keyboard.add_hotkey('right',self.key_right)
+            keyboard.add_hotkey('left',self.key_left)
+            keyboard.add_hotkey('enter',self.key_enter)
+        except Exception as e:
+            print("Keyboard exception",e)
 
         while True:  # Loop to capture keys continuously
             print("event")
@@ -659,7 +662,7 @@ class Application:
                     self.counter = 0
 
             except Exception as e:
-                print(e)
+                print("Keyboard exception",e)
 
             time.sleep(1)
             
