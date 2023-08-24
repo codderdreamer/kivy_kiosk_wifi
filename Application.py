@@ -697,7 +697,7 @@ class Application:
         return asyncio.gather(self.run_app())
     
 if __name__ == '__main__':
-    Window.size = (800, 500)
+    Window.size = (1920, 1200)
 
     loop = asyncio.get_event_loop()
     app = Application(loop)
