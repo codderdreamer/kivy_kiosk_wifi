@@ -629,6 +629,7 @@ class Application:
 
 
     def key_control(self):
+        print("Key Kontrol start")
         keyboard.add_hotkey('ctrl+shift+1', self.key1)
         keyboard.add_hotkey('ctrl+shift+2', self.key2)
         keyboard.add_hotkey('ctrl+shift+3', self.key3)
