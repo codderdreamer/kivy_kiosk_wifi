@@ -453,7 +453,7 @@ class Application:
         self.old_y = 0
 
         self.evet_keyboard = False
-        
+
         threading.Thread(target=self.key_control, daemon=True).start()
 
 
@@ -468,35 +468,42 @@ class Application:
 
 
     def key1(self):
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* ctrl+shift+1 ')
+        self.evet_keyboard = False
 
     def key2(self):
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* ctrl+shift+2')
+        self.evet_keyboard = False
 
     def key3(self):
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* ctrl+shift+3')
+        self.evet_keyboard = False
 
     def key4(self):
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* ctrl+shift+4')
+        self.evet_keyboard = False
 
     def key5(self):
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* ctrl+shift+5')
+        self.evet_keyboard = False
 
     def key6(self):
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* ctrl+shift+6')
+        self.evet_keyboard = False
 
     def key7(self):
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* ctrl+shift+7')
+        self.evet_keyboard = False
 
     def key_up(self):
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* up')
             if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
                 print("WifiSelectorWindow","up")
@@ -521,9 +528,9 @@ class Application:
                     self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
             elif self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
                 pass
+        self.evet_keyboard = False
 
     def key_down(self):
-        print("downnnnnnnnnnnnnnnnn")
         if self.evet_keyboard == True:
             print('************************* down')
             if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
@@ -580,7 +587,7 @@ class Application:
 
 
     def key_left(self):
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* left')
             if self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
                 self.password_right_counter -= 1
@@ -600,8 +607,10 @@ class Application:
                 self.old_x = self.password_right_counter
                 self.old_y = self.password_down_counter
 
+        self.evet_keyboard = False
+
     def key_right(self):
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* right')
             if self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
                 self.password_right_counter += 1
@@ -625,14 +634,16 @@ class Application:
                     if self.password_right_counter == 0:
                         self.password_right_counter = -1
 
+        self.evet_keyboard = False
+
 
     def key_enter(self):
-        if self.key_counter():
+        if self.evet_keyboard == True:
             print('************************* enter')
             if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
                 print("WifiSelectorWindow","enter")
                 self.wifiApp.openWifiPasswordWindow()
-
+        self.evet_keyboard = False
 
     def key_control(self):
         try:
@@ -665,8 +676,6 @@ class Application:
 
             except Exception as e:
                 print("Keyboard exception",e)
-
-            time.sleep(1)
             
 
 
