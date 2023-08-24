@@ -379,8 +379,6 @@ class WifiApp(MDApp):
         self.home_window = None
         self.wifi_selector_window = None
 
-        self.a = False
-
         self.active_wifi_names = ["Atlastek", "DIRECT-3D-HP", "testd", "Atlastek2", "Atlastek5", "Atlastek6", "Atlastek7","Atlastek8"]
 
         threading.Thread(target=self.main,daemon=True).start()
@@ -419,7 +417,7 @@ class WifiApp(MDApp):
         # # and later
         # video.play = True
         while True:
-            print("hey",self.a)
+            print("hey")
             time.sleep(1)
 
     def build(self):
@@ -633,7 +631,6 @@ class Application:
 
 
     def key_control(self):
-        self.wifiApp.a = True
         try:
             keyboard.add_hotkey('ctrl+shift+1', self.key1)
             keyboard.add_hotkey('ctrl+shift+2', self.key2)
