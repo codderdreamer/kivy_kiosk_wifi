@@ -648,6 +648,7 @@ class Application:
         keyboard.add_hotkey('enter',self.key_enter)
 
         while True:  # Loop to capture keys continuously
+            print("event")
             try:
                 event = keyboard.read_event()
                 print(event)
