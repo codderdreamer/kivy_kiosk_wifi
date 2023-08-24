@@ -660,6 +660,9 @@ class Application:
             except Exception as e:
                 print(e)
 
+            time.sleep(1)
+            
+
 
     async def run_app(self):
         '''This method, which runs Kivy, is run by the asyncio loop as one of the
