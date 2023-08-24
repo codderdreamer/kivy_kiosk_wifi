@@ -183,7 +183,7 @@ class WifiPasswordWindow(Screen):
 
     def add_caps_lock(self):
         widget_card = MDCard()
-        widget_card.size_hint = 0.1,0.15
+        widget_card.size_hint = 0.12,0.15
         widget_card.radius = 6,6,6,6
         widget_card.pos_hint = {'x': 0,'y': .54}
         widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
@@ -198,9 +198,26 @@ class WifiPasswordWindow(Screen):
         widget_card.add_widget(image)
         self.ids.keyboard.add_widget(widget_card)
 
+    def add_enter(self):
+        widget_card = MDCard()
+        widget_card.size_hint = 0.07,0.31
+        widget_card.radius = 6,6,6,6
+        widget_card.pos_hint = {'x': .9,'y': .38}
+        widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
+        widget_card.ripple_behavior: True
+        widget_card.elevation = True
+
+        image = Image()
+        image.source = "enter.png"
+        image.size_hint = 0.4,0.4
+        image.pos_hint = {'center_x': 0.5,'center_y': 0.5}
+
+        widget_card.add_widget(image)
+        self.ids.keyboard.add_widget(widget_card)
+
     def add_shift(self):
         widget_card = MDCard()
-        widget_card.size_hint = 0.1,0.15
+        widget_card.size_hint = 0.16,0.15
         widget_card.radius = 6,6,6,6
         widget_card.pos_hint = {'x': 0,'y': .36}
         widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
@@ -215,22 +232,20 @@ class WifiPasswordWindow(Screen):
         widget_card.add_widget(image)
         self.ids.keyboard.add_widget(widget_card)
 
-    def add_enter(self):
+    def add_space(self):
         widget_card = MDCard()
-        widget_card.size_hint = 0.1,0.15
+        widget_card.size_hint = 0.8,0.15
         widget_card.radius = 6,6,6,6
-        widget_card.pos_hint = {'x': .88,'y': .54}
+        widget_card.pos_hint = {'x': 0.1,'y': .18}
         widget_card.md_bg_color = get_color_from_hex("#7b9cb5")
         widget_card.ripple_behavior: True
         widget_card.elevation = True
 
-        image = Image()
-        image.source = "enter.png"
-        image.size_hint = 0.4,0.4
-        image.pos_hint = {'center_x': 0.5,'center_y': 0.5}
-
-        widget_card.add_widget(image)
         self.ids.keyboard.add_widget(widget_card)
+
+
+
+
 
     
     def eng_keyboard_add(self):
@@ -294,52 +309,54 @@ class WifiPasswordWindow(Screen):
         # caps lock
         self.add_caps_lock()
         #       a       A
-        self.add_keyboard_key({'x': 0.11,'y': .54},"a","A")
+        self.add_keyboard_key({'x': 0.13,'y': .54},"a","A")
         #       s       S
-        self.add_keyboard_key({'x': 0.18,'y': .54},"s","S")
+        self.add_keyboard_key({'x': 0.2,'y': .54},"s","S")
         #       d       D
-        self.add_keyboard_key({'x': 0.25,'y': .54},"d","D")
+        self.add_keyboard_key({'x': 0.27,'y': .54},"d","D")
         #       f       F
-        self.add_keyboard_key({'x': 0.32,'y': .54},"f","F")
+        self.add_keyboard_key({'x': 0.34,'y': .54},"f","F")
         #       g       G
-        self.add_keyboard_key({'x': 0.39,'y': .54},"g","G")
+        self.add_keyboard_key({'x': 0.41,'y': .54},"g","G")
         #       h       H
-        self.add_keyboard_key({'x': 0.46,'y': .54},"h","H")
+        self.add_keyboard_key({'x': 0.48,'y': .54},"h","H")
         #       j       J
-        self.add_keyboard_key({'x': 0.53,'y': .54},"j","J")
+        self.add_keyboard_key({'x': 0.55,'y': .54},"j","J")
         #       k       K
-        self.add_keyboard_key({'x': 0.6,'y': .54},"k","K")
+        self.add_keyboard_key({'x': 0.62,'y': .54},"k","K")
         #       l       L
-        self.add_keyboard_key({'x': 0.67,'y': .54},"l","L")
+        self.add_keyboard_key({'x': 0.69,'y': .54},"l","L")
         #       ;       :
-        self.add_keyboard_key({'x': 0.74,'y': .54},";",":")
+        self.add_keyboard_key({'x': 0.76,'y': .54},";",":")
         #       `       "
-        self.add_keyboard_key({'x': 0.81,'y': .54}," ` "," \" ")
+        self.add_keyboard_key({'x': 0.83,'y': .54}," ` "," \" ")
         # enter
         self.add_enter()
         # ------------------------------------ 4. Satır ------------------------------------------
         # shift
         self.add_shift()
         #       z       Z
-        self.add_keyboard_key({'x': 0.11,'y': .36},"z","Z")
+        self.add_keyboard_key({'x': 0.17,'y': .36},"z","Z")
         #       x       X
-        self.add_keyboard_key({'x': 0.18,'y': .36},"x","X")
+        self.add_keyboard_key({'x': 0.24,'y': .36},"x","X")
         #       c       C
-        self.add_keyboard_key({'x': 0.25,'y': .36},"c","C")
+        self.add_keyboard_key({'x': 0.31,'y': .36},"c","C")
         #       v       V
-        self.add_keyboard_key({'x': 0.32,'y': .36},"v","V")
+        self.add_keyboard_key({'x': 0.38,'y': .36},"v","V")
         #       b       B
-        self.add_keyboard_key({'x': 0.39,'y': .36},"b","B")
+        self.add_keyboard_key({'x': 0.45,'y': .36},"b","B")
         #       n       N
-        self.add_keyboard_key({'x': 0.46,'y': .36},"n","N")
+        self.add_keyboard_key({'x': 0.52,'y': .36},"n","N")
         #       m       M
-        self.add_keyboard_key({'x': 0.53,'y': .36},"m","M")
+        self.add_keyboard_key({'x': 0.59,'y': .36},"m","M")
         #       ,       <
-        self.add_keyboard_key({'x': 0.6,'y': .36},",","<")
+        self.add_keyboard_key({'x': 0.66,'y': .36},",","<")
         #       .       >
-        self.add_keyboard_key({'x': 0.67,'y': .36},".",">")
+        self.add_keyboard_key({'x': 0.73,'y': .36},".",">")
         #       /       ?
-        self.add_keyboard_key({'x': 0.74,'y': .36},"/","?")
+        self.add_keyboard_key({'x': 0.8,'y': .36},"/","?")
+        # boşluk
+        self.add_space()
         
 
 
