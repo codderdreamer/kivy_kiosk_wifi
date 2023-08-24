@@ -415,7 +415,7 @@ class WifiApp(MDApp):
         # # and later
         # video.play = True
         while True:
-            print("hey")
+            print("hey",self.a)
             time.sleep(1)
 
     def build(self):
@@ -449,6 +449,8 @@ class Application:
 
         self.old_x = 0
         self.old_y = 0
+
+        self.a = False
 
         threading.Thread(target=self.key_control, daemon=True).start()
 
@@ -629,7 +631,7 @@ class Application:
 
 
     def key_control(self):
-        print("Key Kontrol start")
+        self.a = True
         keyboard.add_hotkey('ctrl+shift+1', self.key1)
         keyboard.add_hotkey('ctrl+shift+2', self.key2)
         keyboard.add_hotkey('ctrl+shift+3', self.key3)
