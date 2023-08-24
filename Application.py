@@ -379,9 +379,13 @@ class WifiApp(MDApp):
         self.home_window = None
         self.wifi_selector_window = None
 
+        self.a = False
+
         self.active_wifi_names = ["Atlastek", "DIRECT-3D-HP", "testd", "Atlastek2", "Atlastek5", "Atlastek6", "Atlastek7","Atlastek8"]
 
         threading.Thread(target=self.main,daemon=True).start()
+
+
 
     def openHomeWindow(self):
         Clock.schedule_once(self.call_home_window, 0)
@@ -449,8 +453,6 @@ class Application:
 
         self.old_x = 0
         self.old_y = 0
-
-        self.wifiApp.a = False
 
         threading.Thread(target=self.key_control, daemon=True).start()
 
@@ -631,7 +633,7 @@ class Application:
 
 
     def key_control(self):
-        self.a = True
+        self.wifiApp.a = True
         keyboard.add_hotkey('ctrl+shift+1', self.key1)
         keyboard.add_hotkey('ctrl+shift+2', self.key2)
         keyboard.add_hotkey('ctrl+shift+3', self.key3)
