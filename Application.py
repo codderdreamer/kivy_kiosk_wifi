@@ -448,6 +448,8 @@ class WifiApp(MDApp):
         while self.close == False:
             print("hey")
             time.sleep(1)
+        time.sleep(3)
+        print("os system **********************")
         os.system("sudo su -l pi -c startx")
         
 
