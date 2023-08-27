@@ -38,7 +38,6 @@ class HomeWindow(Screen):
 
     def on_enter(self, *args):
         wifi_connected = False
-        # os.system("startx -- -nocursor")
         if wifi_connected:
             threading.Thread(target=self.open_visi_help_window,daemon=True).start()
         else:
@@ -49,7 +48,7 @@ class HomeWindow(Screen):
         pass
 
     def open_wifi_selector_window(self):
-        time.sleep(10)
+        # time.sleep(10)
         self.wifiApp.openWifiSelectorWindow()
     
     def on_pre_leave(self, *args):
