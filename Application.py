@@ -675,7 +675,7 @@ class Application:
                 #self.wifiApp.openWebWindow()
                 #webbrowser.open('https://google.com')
                 # os.system("su - pi")
-                os.system("[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx -- -nocursor")
+                os.system("sudo su -l pi -c startx")
         self.evet_keyboard = False
 
     def key_control(self):
