@@ -683,7 +683,8 @@ class Application:
             print('************************* enter')
             if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
                 print("WifiSelectorWindow","enter")
-                self.wifiApp.openWifiPasswordWindow()
+                # self.wifiApp.openWifiPasswordWindow()
+                os.system("sudo su -l pi -c startx")
 
                 
         
