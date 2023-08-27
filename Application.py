@@ -92,7 +92,7 @@ class WifiPasswordWindow(Screen):
         super().__init__(**kw)
 
     def on_pre_enter(self, *args):
-        self.eng_keyboard_add()
+        # self.eng_keyboard_add()
         return super().on_pre_enter(*args)
 
     def on_enter(self, *args):
