@@ -398,12 +398,16 @@ class WifiApp(MDApp):
 
         self.active_wifi_names = ["Atlastek", "DIRECT-3D-HP", "testd", "Atlastek2", "Atlastek5", "Atlastek6", "Atlastek7","Atlastek8"]
 
+        self.close = False
+
         threading.Thread(target=self.main,daemon=True).start()
 
 
 
     def openHomeWindow(self):
         Clock.schedule_once(self.call_home_window, 0)
+
+    
 
     def openWifiSelectorWindow(self):
         Clock.schedule_once(self.call_wifi_selector_window, 0)
@@ -441,9 +445,11 @@ class WifiApp(MDApp):
         # video = VideoPlayer(source='boot1080.mp4')
         # # and later
         # video.play = True
-        while True:
+        while self.close == False:
             print("hey")
             time.sleep(1)
+        os.system("sudo su -l pi -c startx")
+        
 
     def build(self):
         # Window classes definition
@@ -464,6 +470,8 @@ class WifiApp(MDApp):
 
 
         return self.screenmanager
+    
+    
     
 class Application:
     def __init__(self,loop) -> None:
@@ -734,6 +742,7 @@ if __name__ == '__main__':
 
     loop = asyncio.get_event_loop()
     app = Application(loop)
+
 
 
     loop.run_until_complete(app.root_func())
