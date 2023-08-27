@@ -392,6 +392,7 @@ class WebWindow(Screen):
 class WifiApp(MDApp):
     def __init__(self,loop,**kwargs):
         super().__init__(**kwargs)
+        self.loop = loop
         self.screenmanager = None
         self.home_window = None
         self.wifi_selector_window = None
@@ -448,6 +449,8 @@ class WifiApp(MDApp):
         while self.close == False:
             print("hey")
             time.sleep(1)
+        if self.close == True:
+            self.loop.close()
         
         
 
