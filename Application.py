@@ -390,9 +390,10 @@ class WebWindow(Screen):
     
 
 class WifiApp(MDApp):
-    def __init__(self,loop,**kwargs):
+    def __init__(self,app,loop,**kwargs):
         super().__init__(**kwargs)
         self.loop = loop
+        self.app = app
         self.screenmanager = None
         self.home_window = None
         self.wifi_selector_window = None
@@ -400,6 +401,7 @@ class WifiApp(MDApp):
         self.active_wifi_names = ["Atlastek", "DIRECT-3D-HP", "testd", "Atlastek2", "Atlastek5", "Atlastek6", "Atlastek7","Atlastek8"]
 
         self.close = False
+        self.close_async_run = None
 
         threading.Thread(target=self.main,daemon=True).start()
 
@@ -449,8 +451,8 @@ class WifiApp(MDApp):
         while self.close == False:
             print("hey")
             time.sleep(1)
-        if self.close == True:
-            self.loop.close()
+        # if self.close == True:
+        #     self.loop.close()
         
         
 
@@ -493,6 +495,8 @@ class Application:
         self.old_y = 0
 
         self.evet_keyboard = False
+
+        self.key_kontrol_stop = False
 
         threading.Thread(target=self.key_control, daemon=True).start()
 
@@ -688,6 +692,9 @@ class Application:
                 # os.system("su - pi")
                 #os.system("sudo su -l pi -c startx")
                 self.wifiApp.close = True
+                self.key_kontrol_stop = True
+                time.sleep(3)
+                self.wifiApp.get_running_app().stop()
         self.evet_keyboard = False
 
     def key_control(self):
@@ -707,7 +714,7 @@ class Application:
         except Exception as e:
             print("Keyboard exception",e)
 
-        while True:  # Loop to capture keys continuously
+        while self.key_kontrol_stop == False:  # Loop to capture keys continuously
             print("event")
             try:
                 event = keyboard.read_event()
@@ -731,13 +738,14 @@ class Application:
         # we don't actually need to set asyncio as the lib because it is the
         # default, but it doesn't hurt to be explicit
         await self.wifiApp.async_run(async_lib='asyncio')
+
         print(datetime.now(),'App done')
 
     def root_func(self):
         '''This will run both methods asynchronously and then block until they
         are finished
         '''
-        self.wifiApp = WifiApp(self.loop)
+        self.wifiApp = WifiApp(self,self.loop)
 
         return asyncio.gather(self.run_app())
     
@@ -750,8 +758,8 @@ if __name__ == '__main__':
     loop.run_until_complete(app.root_func())
     loop.close()
 
-    print("os system **********************")
-    os.system("sudo su -l pi -c startx")
+    # print("os system **********************")
+    # os.system("sudo su -l pi -c startx")
 
 
 
