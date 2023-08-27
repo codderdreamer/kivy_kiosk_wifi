@@ -77,7 +77,6 @@ class WifiSelectorWindow(Screen):
 
     def on_enter(self, *args):
         # time.sleep(5)
-        self.wifiApp.openWifiPasswordWindow()
         return super().on_enter(*args)
     
     def on_pre_leave(self, *args):
