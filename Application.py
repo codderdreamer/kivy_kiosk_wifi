@@ -448,9 +448,7 @@ class WifiApp(MDApp):
         while self.close == False:
             print("hey")
             time.sleep(1)
-        time.sleep(3)
-        print("os system **********************")
-        os.system("sudo su -l pi -c startx")
+        
         
 
     def build(self):
@@ -746,10 +744,11 @@ if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     app = Application(loop)
 
-
-
     loop.run_until_complete(app.root_func())
     loop.close()
+
+    print("os system **********************")
+    os.system("sudo su -l pi -c startx")
 
 
 
