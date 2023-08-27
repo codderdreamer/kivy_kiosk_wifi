@@ -681,15 +681,10 @@ class Application:
             print('************************* enter')
             if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
                 print("WifiSelectorWindow","enter")
-                #self.wifiApp.openWifiPasswordWindow()
-                #self.wifiApp.openWebWindow()
-                #webbrowser.open('https://google.com')
-                # os.system("su - pi")
-                #os.system("sudo su -l pi -c startx")
-                self.wifiApp.close = True
-                self.key_kontrol_stop = True
-                time.sleep(3)
-                self.wifiApp.get_running_app().stop()
+                self.wifiApp.openWifiPasswordWindow()
+
+                
+        
         self.evet_keyboard = False
 
     def key_control(self):
@@ -753,11 +748,20 @@ if __name__ == '__main__':
     loop.run_until_complete(app.root_func())
     loop.close()
 
-    # print("os system **********************")
-    # os.system("sudo su -l pi -c startx")
 
+
+            # print("os system **********************")
+            # os.system("sudo su -l pi -c startx")
 
 
             # Video:
             # source: 'boot1080.mp4'
             # play: True
+
+
+            # programı kapatmak için
+
+            #os.system("sudo su -l pi -c startx")
+            # self.wifiApp.close = True
+            # self.key_kontrol_stop = True
+            # self.wifiApp.get_running_app().stop()
