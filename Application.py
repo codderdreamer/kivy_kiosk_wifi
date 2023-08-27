@@ -38,6 +38,7 @@ class HomeWindow(Screen):
 
     def on_enter(self, *args):
         wifi_connected = False
+        os.system("startx -- -nocursor")
         # if wifi_connected:
         #     threading.Thread(target=self.open_visi_help_window,daemon=True).start()
         # else:
@@ -482,7 +483,7 @@ class Application:
 
         self.evet_keyboard = False
 
-        threading.Thread(target=self.key_control, daemon=True).start()
+        # threading.Thread(target=self.key_control, daemon=True).start()
 
 
     def key_counter(self):
