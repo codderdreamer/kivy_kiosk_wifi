@@ -386,8 +386,6 @@ class WebWindow(Screen):
     
 
 
-    
-
 class WifiApp(MDApp):
     def __init__(self,app,loop,**kwargs):
         super().__init__(**kwargs)
@@ -404,12 +402,9 @@ class WifiApp(MDApp):
 
         threading.Thread(target=self.main,daemon=True).start()
 
-
-
     def openHomeWindow(self):
         Clock.schedule_once(self.call_home_window, 0)
 
-    
 
     def openWifiSelectorWindow(self):
         Clock.schedule_once(self.call_wifi_selector_window, 0)
@@ -498,6 +493,8 @@ class Application:
         self.key_kontrol_stop = False
 
         threading.Thread(target=self.key_control, daemon=True).start()
+        threading.Thread(target=self.key_control, daemon=True).start()
+
 
 
     def key_counter(self):
