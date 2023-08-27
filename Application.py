@@ -493,7 +493,6 @@ class Application:
         self.key_kontrol_stop = False
 
         threading.Thread(target=self.key_control, daemon=True).start()
-        threading.Thread(target=self.key_control, daemon=True).start()
 
 
 
