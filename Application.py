@@ -38,17 +38,17 @@ class HomeWindow(Screen):
 
     def on_enter(self, *args):
         wifi_connected = False
-        # if wifi_connected:
-        #     threading.Thread(target=self.open_visi_help_window,daemon=True).start()
-        # else:
-        #     threading.Thread(target=self.open_wifi_selector_window,daemon=True).start()
+        if wifi_connected:
+            threading.Thread(target=self.open_visi_help_window,daemon=True).start()
+        else:
+            threading.Thread(target=self.open_wifi_selector_window,daemon=True).start()
         return super().on_enter(*args)
     
     def open_visi_help_window(self):
         pass
 
     def open_wifi_selector_window(self):
-        time.sleep(10)
+        # time.sleep(10)
         self.wifiApp.openWifiSelectorWindow()
     
     def on_pre_leave(self, *args):
@@ -670,10 +670,11 @@ class Application:
             print('************************* enter')
             if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
                 print("WifiSelectorWindow","enter")
-                self.wifiApp.openWifiPasswordWindow()
+                # self.wifiApp.openWifiPasswordWindow()
                 #self.wifiApp.openWebWindow()
                 #webbrowser.open('https://google.com')
-                # os.system("startx -- -nocursor")
+                os.system("su - pi")
+                os.system("startx -- -nocursor")
         self.evet_keyboard = False
 
     def key_control(self):
