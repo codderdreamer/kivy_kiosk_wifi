@@ -671,11 +671,11 @@ class Application:
             print('************************* enter')
             if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
                 print("WifiSelectorWindow","enter")
-                self.wifiApp.openWifiPasswordWindow()
+                #self.wifiApp.openWifiPasswordWindow()
                 #self.wifiApp.openWebWindow()
                 #webbrowser.open('https://google.com')
                 # os.system("su - pi")
-                # os.system("startx -- -nocursor")
+                os.system("[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx -- -nocursor")
         self.evet_keyboard = False
 
     def key_control(self):
