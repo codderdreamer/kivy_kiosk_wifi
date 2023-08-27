@@ -38,10 +38,10 @@ class HomeWindow(Screen):
 
     def on_enter(self, *args):
         wifi_connected = False
-        if wifi_connected:
-            threading.Thread(target=self.open_visi_help_window,daemon=True).start()
-        else:
-            threading.Thread(target=self.open_wifi_selector_window,daemon=True).start()
+        # if wifi_connected:
+        #     threading.Thread(target=self.open_visi_help_window,daemon=True).start()
+        # else:
+        #     threading.Thread(target=self.open_wifi_selector_window,daemon=True).start()
         return super().on_enter(*args)
     
     def open_visi_help_window(self):
@@ -736,3 +736,9 @@ if __name__ == '__main__':
 
     loop.run_until_complete(app.root_func())
     loop.close()
+
+
+
+            # Video:
+            # source: 'boot1080.mp4'
+            # play: True
