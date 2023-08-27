@@ -39,10 +39,10 @@ class HomeWindow(Screen):
     def on_enter(self, *args):
         wifi_connected = False
         # os.system("startx -- -nocursor")
-        # if wifi_connected:
-        #     threading.Thread(target=self.open_visi_help_window,daemon=True).start()
-        # else:
-        #     threading.Thread(target=self.open_wifi_selector_window,daemon=True).start()
+        if wifi_connected:
+            threading.Thread(target=self.open_visi_help_window,daemon=True).start()
+        else:
+            threading.Thread(target=self.open_wifi_selector_window,daemon=True).start()
         return super().on_enter(*args)
     
     def open_visi_help_window(self):
@@ -469,7 +469,6 @@ class Application:
     def __init__(self,loop) -> None:
         self.wifiApp = None
         self.loop = loop
-        os.system("[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx -- -nocursor")
 
         self.key_down_press = 0
         self.counter = 0
@@ -484,7 +483,7 @@ class Application:
 
         self.evet_keyboard = False
 
-        # threading.Thread(target=self.key_control, daemon=True).start()
+        threading.Thread(target=self.key_control, daemon=True).start()
 
 
     def key_counter(self):
