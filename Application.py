@@ -38,10 +38,10 @@ class HomeWindow(Screen):
 
     def on_enter(self, *args):
         wifi_connected = False
-        if wifi_connected:
-            threading.Thread(target=self.open_visi_help_window,daemon=True).start()
-        else:
-            threading.Thread(target=self.open_wifi_selector_window,daemon=True).start()
+        # if wifi_connected:
+        #     threading.Thread(target=self.open_visi_help_window,daemon=True).start()
+        # else:
+        #     threading.Thread(target=self.open_wifi_selector_window,daemon=True).start()
         return super().on_enter(*args)
     
     def open_visi_help_window(self):
@@ -678,7 +678,6 @@ class Application:
         self.evet_keyboard = False
 
     def key_control(self):
-        os.system("sudo su")
         try:
             keyboard.add_hotkey('ctrl+shift+1', self.key1)
             keyboard.add_hotkey('ctrl+shift+2', self.key2)
