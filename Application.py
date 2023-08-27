@@ -49,7 +49,7 @@ class HomeWindow(Screen):
         pass
 
     def open_wifi_selector_window(self):
-        # time.sleep(10)
+        time.sleep(10)
         self.wifiApp.openWifiSelectorWindow()
     
     def on_pre_leave(self, *args):
