@@ -431,7 +431,7 @@ class WifiApp(MDApp):
         self.screenmanager.current_screen.manager.transition.direction = "left"
 
     def main(self):
-        time.sleep(5)
+        # time.sleep(5)
         self.openHomeWindow()
         # start playing the video at creation
         # video = VideoPlayer(source='boot1080.mp4', play=True)
