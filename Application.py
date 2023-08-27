@@ -395,7 +395,7 @@ class WifiApp(MDApp):
         self.home_window = None
         self.wifi_selector_window = None
 
-        self.active_wifi_names = ["Atlastek", "DIRECT-3D-HP", "testd", "Atlastek2", "Atlastek5", "Atlastek6", "Atlastek7","Atlastek8"]
+        self.active_wifi_names = ["FiberHGW_TP06BA_5GHz", "DIRECT-3D-HP", "FiberHGW_TP06BA_2.4GHz", "Kurt Home", "My Home"]
 
         self.close = False
         self.close_async_run = None
