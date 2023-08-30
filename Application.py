@@ -497,17 +497,6 @@ class Application:
         threading.Thread(target=self.key_control, daemon=True).start()
 
 
-
-    def key_counter(self):
-        if self.key_down_press==0:
-            self.counter += 1
-            if self.counter == 1:
-                return True
-        else:
-            self.counter = 0
-        return False
-
-
     def key1(self):
         if self.evet_keyboard == True:
             print('************************* ctrl+shift+1 ')
