@@ -4,7 +4,7 @@ import threading
 
 class Application:
     def __init__(self):
-        pass
+        self.evet_keyboard = False
 
     def key_control(self):
         try:
