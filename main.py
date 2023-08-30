@@ -47,7 +47,6 @@ class Application:
             print('Wifi Login screen')
             self.interface_app = Process(target=open_interface_app)
             self.interface_app.start()
-            os.system('sudo python /home/pi/kivy_kiosk_wifi/Application.py')
         self.evet_keyboard = False
 
     def key2(self):
