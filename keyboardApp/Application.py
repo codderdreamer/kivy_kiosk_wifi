@@ -4,7 +4,7 @@ import threading
 
 class Application:
     def __init__(self):
-        threading.Thread(target=self.key_control, daemon=True).start()
+        pass
 
     def key_control(self):
         try:
@@ -103,4 +103,5 @@ class Application:
             print('************************* enter')        
         self.evet_keyboard = False
 
-Application()
+app = Application()
+app.key_control()
