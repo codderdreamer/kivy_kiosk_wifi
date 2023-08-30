@@ -505,6 +505,8 @@ class Interface_Application:
     def key2(self):
         if self.evet_keyboard == True:
             print('************************* ctrl+shift+2')
+            print('exit')
+            keyboard.write("esc")
         self.evet_keyboard = False
 
     def key3(self):
@@ -741,17 +743,14 @@ class Interface_Application:
 
         return asyncio.gather(self.run_app())
     
-def open_interface_app():
+if __name__ == '__main__':
     Window.size = (1920, 1200)
 
     loop = asyncio.get_event_loop()
     app = Interface_Application(loop)
 
-    def run():
-        loop.run_until_complete(app.root_func())
-        loop.close()
-
-    threading.Thread(target=run).start()
+    loop.run_until_complete(app.root_func())
+    loop.close()
 
     
 

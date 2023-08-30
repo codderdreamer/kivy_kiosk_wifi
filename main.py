@@ -2,13 +2,11 @@ import keyboard
 import os
 import threading
 from multiprocessing import Process, Manager
-from Application import *
 
 class Application:
     def __init__(self):
         self.evet_keyboard = False
         self.key_down_press = 0
-        self.interface_app = None
 
     def key_control(self):
         try:
@@ -45,14 +43,14 @@ class Application:
         if self.evet_keyboard == True:
             print('*************************key: ctrl+shift+1')
             print('Wifi Login screen')
-            self.interface_app = Process(target=open_interface_app)
-            self.interface_app.start()
+            os.system('sudo python Application.py')
+            
         self.evet_keyboard = False
 
     def key2(self):
         if self.evet_keyboard == True:
             print('*************************key: ctrl+shift+2')
-            self.interface_app.close()
+        
 
         self.evet_keyboard = False
 
