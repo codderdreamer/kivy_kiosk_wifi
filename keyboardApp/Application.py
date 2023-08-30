@@ -40,14 +40,14 @@ class Application:
 
     def key1(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+1')
+            print('*************************key: ctrl+shift+1')
             print('Wifi Login screen')
             os.system('sudo python /home/pi/kivy_kiosk_wifi/Application.py')
         self.evet_keyboard = False
 
     def key2(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+2')
+            print('*************************key: ctrl+shift+2')
             print('Web Screen')
             os.system("sudo su -l pi -c startx")
 
@@ -55,53 +55,53 @@ class Application:
 
     def key3(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+3')
+            print('*************************key: ctrl+shift+3')
         self.evet_keyboard = False
 
     def key4(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+4')
+            print('*************************key: ctrl+shift+4')
         self.evet_keyboard = False
 
     def key5(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+5')
+            print('*************************key: ctrl+shift+5')
         self.evet_keyboard = False
 
     def key6(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+6')
+            print('*************************key: ctrl+shift+6')
         self.evet_keyboard = False
 
     def key7(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+7')
+            print('*************************key: ctrl+shift+7')
         self.evet_keyboard = False
 
     def key_up(self):
         if self.evet_keyboard == True:
-            print('************************* up')
+            print('*************************key: up')
         self.evet_keyboard = False
 
     def key_down(self):
         if self.evet_keyboard == True:
-            print('************************* down')
+            print('*************************key: down')
         self.evet_keyboard=False
 
     def key_left(self):
         if self.evet_keyboard == True:
-            print('************************* left')
+            print('*************************key: left')
         self.evet_keyboard = False
 
     def key_right(self):
         if self.evet_keyboard == True:
-            print('************************* right')
+            print('*************************key: right')
         self.evet_keyboard = False
 
 
     def key_enter(self):
         if self.evet_keyboard == True:
-            print('************************* enter')        
+            print('*************************key: enter')        
         self.evet_keyboard = False
 
 app = Application()
