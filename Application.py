@@ -741,18 +741,18 @@ class Interface_Application:
 
         return asyncio.gather(self.run_app())
     
-def kivy_app():
+def open_interface_app():
     Window.size = (1920, 1200)
 
     loop = asyncio.get_event_loop()
     app = Interface_Application(loop)
 
-    loop.run_until_complete(app.root_func())
-    loop.close()
+    def run():
+        loop.run_until_complete(app.root_func())
+        loop.close()
 
-def open_interface_app():
-    from kivy.clock import Clock
-    Clock.schedule_once(lambda x: threading.Thread(target=kivy_app).start())
+    threading.Thread(target=run).start()
+
     
 
 
