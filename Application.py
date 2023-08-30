@@ -474,7 +474,7 @@ class WifiApp(MDApp):
     
     
     
-class Application:
+class Interface_Application:
     def __init__(self,loop) -> None:
         self.wifiApp = None
         self.loop = loop
@@ -741,16 +741,18 @@ class Application:
 
         return asyncio.gather(self.run_app())
     
-if __name__ == '__main__':
+
+def open_interface_app():
     Window.size = (1920, 1200)
 
     loop = asyncio.get_event_loop()
-    app = Application(loop)
+    app = Interface_Application(loop)
 
     loop.run_until_complete(app.root_func())
     loop.close()
 
 
+            # if __name__ == '__main__':
 
             # print("os system **********************")
             # os.system("sudo su -l pi -c startx")
