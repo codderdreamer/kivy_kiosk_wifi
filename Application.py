@@ -475,9 +475,10 @@ class WifiApp(MDApp):
     
     
 class Interface_Application:
-    def __init__(self,loop) -> None:
+    def __init__(self,loop,dene) -> None:
         self.wifiApp = None
         self.loop = loop
+        self.dene = dene
 
         self.key_down_press = 0
         self.counter = 0
@@ -505,8 +506,7 @@ class Interface_Application:
     def key2(self):
         if self.evet_keyboard == True:
             print('************************* ctrl+shift+2')
-            print('exit')
-            keyboard.write("esc")
+            self.dene.add_done_callback()
         self.evet_keyboard = False
 
     def key3(self):
@@ -747,9 +747,11 @@ if __name__ == '__main__':
     Window.size = (1920, 1200)
 
     loop = asyncio.get_event_loop()
-    app = Interface_Application(loop)
+    dene = None
+    app = Interface_Application(loop,dene)
 
-    loop.run_until_complete(app.root_func())
+
+    loop.run_until_complete(dene = app.root_func())
     loop.close()
 
     
