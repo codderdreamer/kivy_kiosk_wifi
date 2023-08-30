@@ -1,9 +1,10 @@
 import keyboard
 import os
+import threading
 
 class Application:
     def __init__(self):
-        pass
+        threading.Thread(target=self.key_control, daemon=True).start()
 
     def key_control(self):
         try:
@@ -101,3 +102,5 @@ class Application:
         if self.evet_keyboard == True:
             print('************************* enter')        
         self.evet_keyboard = False
+
+Application()
